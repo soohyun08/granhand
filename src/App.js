@@ -1,24 +1,37 @@
-import logo from './logo.svg';
-import './App.css';
+import { Routes, Route } from "react-router-dom";
+
+// pages
+import Header from "./pages/Header";
+import Footer from "./pages/Footer";
+import Main from "./pages/Main";
+import Shop from "./pages/Shop";
+import Stores from "./pages/Stores";
+// components
+import Join from "./components/Join";
+import Login from "./components/Login";
+import Cart from "./components/Cart";
+import Search from "./components/Search";
+import KakaoServise from "./components/KakaoServise";
+// style
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Header />
+
+      <Routes>
+        <Route path="/" element={<Main />} />
+        <Route path="/shop" element={<Shop />} />
+        <Route path="/stores" element={<Stores />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/join" element={<Join />} />
+        <Route path="/cart" element={<Cart />} />
+        <Route path="/search" element={<Search />} />
+      </Routes>
+
+      <KakaoServise />
+      <Footer />
+    </>
   );
 }
 
