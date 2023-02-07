@@ -13,6 +13,7 @@ import Cart from "./components/Cart";
 import Search from "./components/Search";
 import KakaoServise from "./components/KakaoServise";
 // style
+import "./assets/style/style.scss";
 
 function App() {
   return (

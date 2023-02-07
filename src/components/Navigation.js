@@ -1,11 +1,14 @@
 import { Link } from "react-router-dom";
+import "./navigation.scss";
 
 function Navigation() {
   return (
     <nav className="navigation">
       <ul className="gnbBar">
         <li>
-          <Link to="/search">Search</Link>
+          <Link to="/search">
+            <span class="material-symbols-rounded">search</span>
+          </Link>
         </li>
         <li>
           <Link to="/shop">Shop</Link>

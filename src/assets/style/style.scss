@@ -1,0 +1,17 @@
+// 초기화
+@import "./reset.css";
+// 폰트
+@import url("https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap");
+//변수 모음
+@import "./variable.scss";
+
+body {
+  font-family: $nanum;
+}
+
+main,
+header,
+footer {
+  width: 62vw;
+  margin: 0 auto;
+}
