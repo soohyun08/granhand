@@ -1,0 +1,10 @@
+{
+  "files": {
+    "main.js": "/granhand/static/js/main.c6faab2f.js",
+    "index.html": "/granhand/index.html",
+    "main.c6faab2f.js.map": "/granhand/static/js/main.c6faab2f.js.map"
+  },
+  "entrypoints": [
+    "static/js/main.c6faab2f.js"
+  ]
+}
