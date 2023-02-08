@@ -11,9 +11,13 @@ import Join from "./components/Join";
 import Login from "./components/Login";
 import Cart from "./components/Cart";
 import Search from "./components/Search";
-import KakaoServise from "./components/KakaoServise";
+import KakaoService from "./components/KakaoService";
 // style
 import "./assets/style/style.scss";
+import Perfume from "./components/shopSubPage/Perfume";
+import Signature from "./components/shopSubPage/Signature";
+import Perfume2 from "./components/shopSubPage/Perfume2";
+import MultiPerfume from "./components/shopSubPage/MultiPerfume";
 
 function App() {
   return (
@@ -22,7 +26,14 @@ function App() {
 
       <Routes>
         <Route path="/" element={<Main />} />
-        <Route path="/shop" element={<Shop />} />
+        <Route path="/shop">
+          <Route index element={<Shop />} />
+          <Route path=":perfume" element={<Perfume />} />
+          <Route path=":signature" element={<Signature />} />
+          <Route path=":perfume2" element={<Perfume2 />} />
+          <Route path=":MultiPerfume" element={<MultiPerfume />} />
+        </Route>
+
         <Route path="/stores" element={<Stores />} />
         <Route path="/login" element={<Login />} />
         <Route path="/join" element={<Join />} />
@@ -30,7 +41,7 @@ function App() {
         <Route path="/search" element={<Search />} />
       </Routes>
 
-      <KakaoServise />
+      <KakaoService />
       <Footer />
     </>
   );

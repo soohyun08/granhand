@@ -1,0 +1,66 @@
+@import "../assets/style/variable.scss";
+
+.mainShop {
+  display: flex;
+  margin-bottom: 9vw;
+  .mainShopContainer {
+    .sectionWrapper {
+      display: flex;
+      section {
+        font-size: 13px;
+        text-transform: capitalize;
+        width: 350px;
+        &:nth-child(2) {
+          margin: 0 40px;
+        }
+        h4 {
+          font-weight: 700;
+          padding: 5px 0;
+          border-top: $borderBlack;
+          border-bottom: $borderGray;
+        }
+        h5 {
+          font-weight: 700;
+          padding: 5px 0;
+          color: $colorSoftGray;
+        }
+        p {
+          margin-top: 10px;
+          color: $colorDarkGray;
+        }
+      }
+    }
+  }
+
+  .items {
+    width: 250px;
+    margin-left: auto;
+    h3 {
+      font-size: 20px;
+      margin-bottom: 40px;
+
+      font-weight: 700;
+      text-transform: capitalize;
+    }
+    section {
+      width: 250px;
+      font-size: 13px;
+      text-transform: capitalize;
+      h4 {
+        font-weight: 700;
+        padding: 5px 0;
+        border-top: $borderBlack;
+        border-bottom: $borderGray;
+      }
+      h5 {
+        font-weight: 700;
+        padding: 5px 0;
+        color: $colorSoftGray;
+      }
+      p {
+        margin-top: 10px;
+        color: $colorDarkGray;
+      }
+    }
+  }
+}

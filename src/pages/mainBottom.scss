@@ -1,0 +1,48 @@
+@import "../assets/style/variable.scss";
+
+.mainBottom {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  margin-bottom: 9vw;
+  h2 {
+    font-size: 16px;
+  }
+  a {
+    color: $colorSoftGray;
+  }
+  span {
+    font-size: 16px;
+    vertical-align: bottom;
+  }
+
+  .mainStores {
+    width: 400px;
+    font-weight: 700;
+    p {
+      margin-bottom: 10px;
+    }
+  }
+
+  .mainNewsletter {
+    input {
+      background-color: transparent;
+      margin-bottom: 10px;
+      font-weight: 700;
+    }
+    button {
+      background-color: transparent;
+      margin-top: 10px;
+      padding: 0;
+      font-weight: 700;
+      color: $colorSoftGray;
+      cursor: pointer;
+    }
+  }
+
+  .mainSupport {
+    display: flex;
+    flex-direction: column;
+    font-weight: 700;
+  }
+}

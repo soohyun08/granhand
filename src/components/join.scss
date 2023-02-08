@@ -1,0 +1,43 @@
+@import "../assets/style/variable.scss";
+
+.join {
+  width: 350px;
+  margin: 23vh auto;
+  font-size: 13px;
+  color: $colorDarkGray;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  svg {
+    width: 6px;
+    margin-left: 5px;
+    fill: rgb(73, 167, 255);
+    vertical-align: middle;
+    padding-bottom: 3px;
+  }
+  input {
+    width: 350px;
+    margin: 10px 0 25px;
+    border: $borderGray;
+    font-size: 13px;
+    color: $colorDarkGray;
+    padding: 15px;
+  }
+  #userId {
+    margin-bottom: 0;
+  }
+  #userPw1 {
+    margin: 0;
+    border-top: none;
+    border-bottom: none;
+  }
+  #userPw2 {
+    margin-top: 0;
+  }
+  button {
+    width: 350px;
+    padding: 10px;
+    background-color: #000;
+    color: #fff;
+  }
+}

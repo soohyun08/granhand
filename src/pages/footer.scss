@@ -1,0 +1,40 @@
+@import "../assets/style/variable.scss";
+
+footer {
+  .footerTop {
+    border-top: $borderGray;
+    padding-top: 30px;
+    display: flex;
+    margin-bottom: 60px;
+    color: $colorDarkGray;
+    svg {
+      padding-top: 5px;
+      width: 14px;
+      fill: $colorDarkGray;
+    }
+
+    h4 {
+      width: 300px;
+      font-size: 14px;
+      margin-left: 80px;
+      line-height: 1.6;
+    }
+    p {
+      margin-left: 200px;
+      width: 100%;
+      font-size: 11.5px;
+      line-height: 1.8;
+    }
+  }
+
+  .info {
+    display: flex;
+    flex-wrap: wrap;
+    p {
+      font-size: 10px;
+      color: $colorSoftGray;
+      margin-left: 3px;
+      padding-bottom: 20px;
+    }
+  }
+}

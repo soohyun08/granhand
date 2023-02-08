@@ -1,17 +1,28 @@
 // 초기화
 @import "./reset.css";
-// 폰트
-@import url("https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap");
+// 구글 폰트
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Nanum+Gothic:wght@400;700;800&display=swap");
 //변수 모음
 @import "./variable.scss";
 
 body {
-  font-family: $nanum;
+  font-family: $inter;
+  background-color: $colorBody;
+  word-break: keep-all;
 }
 
 main,
 header,
-footer {
-  width: 62vw;
+footer,
+.shop,
+.stores,
+.card {
+  width: 60vw;
   margin: 0 auto;
+}
+
+h2 {
+  font-weight: 700;
+  font-size: 24px;
+  margin-bottom: 30px;
 }

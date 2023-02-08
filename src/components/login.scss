@@ -1,0 +1,83 @@
+@import "../assets/style/variable.scss";
+
+.login {
+  width: 300px;
+  margin: 23vh auto;
+  display: flex;
+  flex-direction: column;
+  font-size: 14px;
+  font-weight: 600;
+  color: $colorDarkGray;
+  input {
+    border: $borderGray;
+    padding: 15px;
+    &[type="email"] {
+      border-bottom: none;
+    }
+  }
+  .keepLogin {
+    margin: 10px 0;
+    input[type="checkbox"] {
+      background-color: #000;
+    }
+    label {
+      margin-left: 10px;
+    }
+  }
+  [type="submit"] {
+    font-size: 14px;
+    font-weight: 700;
+    color: $colorDarkGray;
+    padding: 10px;
+    background-color: transparent;
+    border: $borderGray;
+  }
+  .loginOthers {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0;
+  }
+  p {
+    text-align: center;
+    margin: 20px 0;
+    position: relative;
+    &::before {
+      content: "";
+      width: 40%;
+      height: 1px;
+      background-color: #e4e4e4;
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    &::after {
+      content: "";
+      width: 40%;
+      height: 1px;
+      background-color: #e4e4e4;
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+  }
+  .kakao {
+    text-align: center;
+    padding: 13px;
+    background-color: #feea00;
+    color: #3c1e1e;
+    img {
+      width: 20px;
+      vertical-align: top;
+      margin-right: 10px;
+    }
+  }
+  .noMember {
+    font-size: 13px;
+    text-align: center;
+    padding: 13px;
+    color: #fff;
+    background-color: gray;
+  }
+}

@@ -41,6 +41,7 @@ input,
 select {
   margin: 0;
   outline: none;
+  border: none;
 }
 html {
   box-sizing: border-box;
@@ -54,7 +55,7 @@ img,
 video {
   height: auto;
   max-width: 100%;
-  vertical-align: top;
+  /* vertical-align: top; */
 }
 iframe {
   border: 0;

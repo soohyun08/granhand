@@ -1,0 +1,82 @@
+@import "../assets/style/variable.scss";
+
+.shop {
+  padding-top: 9vw;
+  //   display: flex; 이거 쓰면 sticky 작동x
+  .sideBar {
+    float: left;
+    width: 300px;
+    position: sticky;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    text-transform: capitalize;
+    font-size: 13px;
+    font-weight: 700;
+    ul {
+      padding-left: 0;
+      display: flex;
+      .category {
+        color: #666;
+      }
+      li {
+        color: $colorSoftGray;
+        margin: 5px;
+        margin-left: 0;
+      }
+    }
+    h3 {
+      border-top: $borderGray;
+      padding-top: 10px;
+      margin-top: 10px;
+      font-size: 13px;
+      font-weight: 700;
+      color: #666;
+    }
+  }
+  .mainContent {
+    width: 70%;
+    margin-left: auto;
+    color: #333;
+
+    h2 {
+      font-size: 14px;
+      color: $colorSoftGray;
+      span {
+        color: #333;
+      }
+    }
+
+    article {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 28px;
+      line-height: 1.6;
+      section {
+        h3 {
+          font-size: 14px;
+          font-weight: 700;
+          width: 250px;
+        }
+        span,
+        .stock {
+          width: 100px;
+          font-size: 12px;
+          color: $colorSoftGray;
+        }
+        span {
+          font-weight: 500;
+          width: 70px;
+        }
+        p {
+          font-size: 12px;
+          color: $colorDarkGray;
+          font-weight: 600;
+        }
+        img {
+          width: 250px;
+        }
+      }
+    }
+  }
+}

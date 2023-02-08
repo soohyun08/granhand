@@ -1,3 +1,30 @@
-.gnbBar {
+@import "../assets/style/variable.scss";
+
+.navigation {
   display: flex;
+  a {
+    margin: 0 20px;
+    font-weight: 700;
+  }
+  .globalNav {
+    display: flex;
+    font-family: $Helvetica;
+    font-size: 14px;
+    :nth-child(2) {
+      opacity: 0.9;
+    }
+    :nth-child(3) {
+      opacity: 0.7;
+    }
+  }
+  .registry {
+    display: flex;
+    font-family: $inter;
+    font-size: 13px;
+    opacity: 0.5;
+  }
+  span {
+    font-size: 19px;
+    font-weight: bold;
+  }
 }

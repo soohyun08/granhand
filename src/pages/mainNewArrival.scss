@@ -1,0 +1,34 @@
+@import "../assets/style/variable.scss";
+
+.newArrival {
+  h2 {
+    border-top: $borderBlack;
+    border-bottom: $borderGray;
+    padding: 20px 0;
+  }
+  h3 {
+    font-size: 13px;
+    font-weight: 700;
+    color: $colorSoftGray;
+    padding: 10px 0;
+  }
+  .mainPic {
+    height: 600px;
+    overflow: hidden;
+  }
+  .NewArrivalTxt {
+    display: flex;
+    margin: 20px 0 9vw;
+    p {
+      &:nth-child(1) {
+        margin-right: 15vw;
+        font-weight: 700;
+        font-size: 14px;
+      }
+      &:nth-child(2) {
+        font-size: 13px;
+        color: $colorDarkGray;
+      }
+    }
+  }
+}
