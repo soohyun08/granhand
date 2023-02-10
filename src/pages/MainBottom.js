@@ -11,8 +11,8 @@ function MainBottom() {
           공간입니다. 바쁜 일상 속 잠시 숨을 들리는 시간과 경험이 됩니다.
         </p>
         <Link to="">
-          <span class="material-symbols-outlined">arrow_forward</span> 오프라인
-          스토어 안내
+          <span className="material-symbols-outlined">arrow_forward</span>{" "}
+          오프라인 스토어 안내
         </Link>
       </div>
 

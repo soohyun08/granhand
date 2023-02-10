@@ -10,8 +10,11 @@ function Navigation() {
             <span className="material-symbols-rounded">search</span>
           </Link>
         </li>
-        <li>
+        {/*         <li>
           <Link to="/shop">Shop</Link>
+        </li> */}
+        <li>
+          <Link to="/productList">Product</Link>
         </li>
         <li>
           <Link to="/stores">Stores</Link>
@@ -19,14 +22,17 @@ function Navigation() {
       </ul>
 
       <ul className="registry">
-        <li>
+        {/* <li>
           <Link to="/login">Login</Link>
-        </li>
+        </li> */}
         <li>
           <Link to="/join">Join</Link>
         </li>
         <li>
           <Link to="/cart">Cart</Link>
+        </li>
+        <li>
+          <Link to="/wishList">Wish List</Link>
         </li>
       </ul>
     </nav>

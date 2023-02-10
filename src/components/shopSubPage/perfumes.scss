@@ -1,22 +1,18 @@
-@import "../assets/style/variable.scss";
+@import "../../assets/style/variable.scss";
+.container {
+  width: 60vw;
+  margin: 9vw auto;
 
-.shop {
-  padding: 9vw 0;
-  //   display: flex; 이거 쓰면 asideBar sticky 작동x
   .mainContent {
     width: 70%;
     margin-left: auto;
     color: #333;
 
-    .headLine {
-      display: flex;
-      justify-content: space-between;
-      h2 {
-        font-size: 14px;
-        color: $colorSoftGray;
-        span {
-          color: #333;
-        }
+    h2 {
+      font-size: 14px;
+      color: $colorSoftGray;
+      span {
+        color: #333;
       }
     }
 

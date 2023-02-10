@@ -1,9 +1,25 @@
-import { Link } from "react-router-dom";
+import LineUp from "./LineUp";
+import "../../pages/shop.scss";
+import AsideBar from "../AsideBar";
+import PerfumeMap from "./PerfumeMap";
 
-function Perfume({ data }) {
-  const path = process.env.PUBLIC_URL;
+function Perfume() {
+  return (
+    <div className="shop">
+      <AsideBar />
 
-  return <div></div>;
+      <div className="mainContent">
+        <div className="headLine">
+          <h2>
+            Perfume <span>20</span>
+          </h2>
+          <LineUp />
+        </div>
+
+        <PerfumeMap />
+      </div>
+    </div>
+  );
 }
 
 export default Perfume;

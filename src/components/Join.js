@@ -1,53 +1,46 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import firebase from "../firebase";
+import { useNavigate } from "react-router-dom";
+
 import "./join.scss";
 
 function Join() {
-  const initVal = {
-    userId: "",
-    userPw1: "",
-    userPw2: "",
-    userName: "",
-    userNumber: "",
-  };
-  const [Val, setVal] = useState(initVal);
+  const navigate = useNavigate();
 
-  const check = (value) => {
-    const eng = /[a-zA-Z]/;
-    const num = /[0-9]/;
-    const spc = /[~!@#$%^&*()_+]/;
+  const [UserId, setUserId] = useState("");
+  const [UserPw1, setUserPw1] = useState("");
+  const [UserPw2, setUserPw2] = useState("");
+  const [UserName, setUserName] = useState("");
+  const [UserNumber, setUserNumber] = useState("");
 
-    if (value.userId.length < 8 || !/@/.test(Val.userEmail)) {
-      window.alert("이메일 주소를 확인해주세요.");
+  const [Submit, setSubmit] = useState(false);
+
+  const handleSubmit = async () => {
+    if (!(UserName && UserPw1 && UserPw2 && UserId && UserNumber)) {
+      return alert("모두 작성해주세요");
     }
-    if (
-      value.userPw1 < 6 ||
-      !eng.test(value.userPw1) ||
-      !num.test(value.userPw1) ||
-      !spc.test(value.userPw1)
-    ) {
-      window.alert("6글자 이상, 영문, 숫자, 특수문자를 모두 포함해야 합니다.");
+    if (UserPw1 !== UserPw2) {
+      return alert("비밀번호를 동일하게 입력하세요");
     }
-    if (value.userPw1 !== value.userPw2 || value.userPw2 < 6) {
-      window.alert("비밀번호가 같지 않습니다.");
-    }
-    if (value.userName === "") {
-      window.alert("이름을 적어주세요.");
-    }
-    if (value.userNumber === "" || value.userNumber < 7) {
-      window.alert("전화번호를 입력하세요.");
-    }
+
+    let createUser = await firebase
+      .auth()
+      .createUserWithEmailAndPassword(UserId, UserPw1);
+
+    // 반환된 user 값에 닉네임 추가 등록
+    await createUser.user.updateProfile({
+      displayName: UserName,
+    });
+
+    console.log(createUser.user);
   };
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setVal({ ...value, [name]: value });
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    check(Val);
-  };
+  useEffect(() => {
+    if (Submit) {
+      alert("회원가입이 완료되었습니다. 메인페이지로 이동합니다.");
+      navigate("/");
+    }
+  }, [handleSubmit]);
 
   return (
     <div className="join">
@@ -63,22 +56,24 @@ function Join() {
           name="userId"
           id="userId"
           placeholder="이메일"
-          value={Val.userId}
-          onChange={handleChange}
+          value={UserId}
+          onChange={(e) => setUserId(e.target.value)}
         />
         <input
           type="password"
           name="userPw1"
           id="userPw1"
           placeholder="비밀번호"
-          onChange={handleChange}
+          value={UserPw1}
+          onChange={(e) => setUserPw1(e.target.value)}
         />
         <input
           type="password"
           name="userPw2"
           id="userPw2"
           placeholder="비밀번호 확인"
-          onChange={handleChange}
+          value={UserPw2}
+          onChange={(e) => setUserPw2(e.target.value)}
         />
 
         <h3>
@@ -92,8 +87,8 @@ function Join() {
           name="userName"
           id="userName"
           placeholder="이름을(를) 입력하세요"
-          value={Val.userName}
-          onChange={handleChange}
+          value={UserName}
+          onChange={(e) => setUserName(e.target.value)}
         />
         <h3>
           연락처
@@ -106,11 +101,11 @@ function Join() {
           name="userNumber"
           id="userNumber"
           placeholder="연락처"
-          value={Val.userNumber}
-          onChange={handleChange}
+          value={UserNumber}
+          onChange={(e) => setUserNumber(e.target.value)}
         />
 
-        <button type="submit" value="send">
+        <button type="submit" onClick={handleSubmit}>
           가입하기
         </button>
       </form>

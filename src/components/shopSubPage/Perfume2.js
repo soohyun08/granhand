@@ -1,37 +1,26 @@
-import { Link } from "react-router-dom";
 import LineUp from "./LineUp";
-import data from "../../assets/DB/shopData.json";
+import Perfume2Map from "./Perfume2Map";
+import "../../pages/shop.scss";
+import AsideBar from "../AsideBar";
 
 function Perfume2() {
-  const path = process.env.PUBLIC_URL;
-  const { PerfumeItems } = data;
   return (
-    <>
-      <h2>
-        Perfume <span>3</span>
-      </h2>
-      <LineUp />
+    <div className="shop">
+      <AsideBar />
 
-      <article>
-        {PerfumeItems.map((item) => (
-          <section>
-            <Link to="" key={item.id}>
-              <img
-                src={`${path}/images/shop/${item.imgURL}.jpg`}
-                alt={item.name}
-              />
-              <h3>
-                {item.name} <span>{item.koName}</span>
-              </h3>
-              <p>
-                {item.price} <span>{item.capacity}</span>
-              </p>
-              <div className="stock">{item.stock}</div>
-            </Link>
-          </section>
-        ))}
-      </article>
-    </>
+      <div className="mainContent">
+        <div className="headLine">
+          <h2>
+            Perfume <span>3</span>
+          </h2>
+          <LineUp />
+        </div>
+
+        <article>
+          <Perfume2Map />
+        </article>
+      </div>
+    </div>
   );
 }
 

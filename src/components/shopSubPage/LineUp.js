@@ -1,13 +1,19 @@
-import React from "react";
+import "./lineUp.scss";
 
-function LineUp(props) {
+import { useState } from "react";
+
+function LineUp() {
+  // const [price, setPrice] = useState([]);
+
+  // console.log(price);
+
   return (
     <div>
-      <div className="lineUp">
-        <div className="lowPrice"></div>
-        <div className="highPrice"></div>
-        <div className="mostSaled"></div>
-      </div>
+      <ul className="lineUp">
+        <li className="lowPrice">낮은 가격 순</li>
+        <li className="highPrice">높은 가격 순</li>
+        <li className="mostSaled">판매 순</li>
+      </ul>
     </div>
   );
 }
