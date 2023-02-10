@@ -38,7 +38,7 @@
   }
 
   .cartListMap {
-    padding-bottom: 40px;
+    padding-bottom: 20px;
 
     li {
       border-bottom: $borderGray;
@@ -89,5 +89,25 @@
         }
       }
     }
+  }
+  .selectDele {
+    background-color: #fff;
+    border: $borderGray;
+    padding: 6px 12px;
+    font-size: 12px;
+    margin-bottom: 40px;
+  }
+  .totalQuantity {
+    border-top: 1px solid #000;
+    border-bottom: $borderGray;
+    font-size: 14px;
+    padding: 10px 0;
+  }
+  .total {
+    padding: 40px 0 60px;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 700;
+    border-bottom: 1px solid #000;
   }
 }

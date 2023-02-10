@@ -63,7 +63,7 @@ function Cart() {
           ))}
         </ul>
       )}
-      <button>선택상품 삭제</button>
+      <button className="selectDele">선택상품 삭제</button>
 
       <h5 className="totalQuantity">총 주문 상품 {product.length}개</h5>
       <h6 className="total">상품금액 + 배송비 = 총 주문금액</h6>
