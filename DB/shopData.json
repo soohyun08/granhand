@@ -1,0 +1,76 @@
+{
+  "ShopItems": [
+    {
+      "id": "SignatureItem01",
+      "imgURL": "SignatureMarne",
+      "name": "Marne Signature Perfume",
+      "koName": "마르네 시그니처 퍼퓸",
+      "price": "110,000 KRW",
+      "capacity": "50ml",
+      "stock": ""
+    },
+    {
+      "id": "SignatureItem02",
+      "imgURL": "SignatureMarne",
+      "name": "Marne Signature Perfume",
+      "koName": "마르네 시그니처 퍼퓸",
+      "price": "110,000 KRW",
+      "capacity": "50ml",
+      "stock": ""
+    },
+    {
+      "id": "SignatureItem03",
+      "imgURL": "SignatureMarne",
+      "name": "Marne Signature Perfume",
+      "koName": "마르네 시그니처 퍼퓸",
+      "price": "110,000 KRW",
+      "capacity": "50ml",
+      "stock": ""
+    },
+    {
+      "id": "SignatureItem04",
+      "imgURL": "SignatureModle",
+      "name": "Modle Signature Perfume",
+      "koName": "모들 시그니처 퍼퓸",
+      "price": "110,000 KRW",
+      "capacity": "50ml",
+      "stock": ""
+    },
+    {
+      "id": "SignatureItem05",
+      "imgURL": "SignatureMarne",
+      "name": "Marne Signature Perfume",
+      "koName": "마르네 시그니처 퍼퓸",
+      "price": "110,000 KRW",
+      "capacity": "50ml",
+      "stock": "SOLDOUT"
+    },
+    {
+      "id": "PerfumeItem01",
+      "imgURL": "PerfumeNoll",
+      "name": "NOLL Perfume",
+      "koName": "놀 시그니처 퍼퓸",
+      "price": "55,000 KRW",
+      "capacity": "130ml",
+      "stock": ""
+    },
+    {
+      "id": "PerfumeItem02",
+      "imgURL": "PerfumeMunaki",
+      "name": "MUNAKI Perfume",
+      "koName": "무나키 퍼퓸",
+      "price": "55,000 KRW",
+      "capacity": "130ml",
+      "stock": ""
+    },
+    {
+      "id": "PerfumeItem03",
+      "imgURL": "PerfumeNube",
+      "name": "NUBE Perfume",
+      "koName": "누베 퍼퓸",
+      "price": "55,000 KRW",
+      "capacity": "130ml",
+      "stock": ""
+    }
+  ]
+}
