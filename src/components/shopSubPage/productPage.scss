@@ -91,9 +91,14 @@
           &:nth-child(2) {
             background-color: #fff;
             border: $borderGray;
-            color: #00c73c;
+            color: #000;
             width: 50px;
             margin-left: 15px;
+            font-size: 18px;
+            line-height: 40px;
+            svg {
+              width: 16px;
+            }
           }
         }
       }

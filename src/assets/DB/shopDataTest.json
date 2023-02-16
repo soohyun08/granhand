@@ -6,9 +6,11 @@
       "imgURL": "SignatureMarne",
       "name": "Marne Signature Perfume",
       "koName": "마르네 시그니처 퍼퓸",
-      "price": "11",
+      "price": "110000",
       "capacity": "50ml",
-      "stock": ""
+      "stock": "",
+      "quantity": 1,
+      "isChk": false
     },
     {
       "id": "2",
@@ -16,9 +18,11 @@
       "imgURL": "SignatureModle",
       "name": "Modle Signature Perfume",
       "koName": "모들 시그니처 퍼퓸",
-      "price": "110",
+      "price": "110000",
       "capacity": "50ml",
-      "stock": ""
+      "stock": "",
+      "quantity": 1,
+      "isChk": false
     },
     {
       "id": "3",
@@ -26,9 +30,11 @@
       "imgURL": "SignatureSopni",
       "name": "Sopni Signature Perfume",
       "koName": "솝니 시그니처 퍼퓸",
-      "price": "110",
+      "price": "110000",
       "capacity": "50ml",
-      "stock": ""
+      "stock": "",
+      "quantity": 1,
+      "isChk": false
     },
     {
       "id": "4",
@@ -36,9 +42,11 @@
       "imgURL": "SignatureWeimar",
       "name": "Weimar Signature Perfume",
       "koName": "바이마르 시그니처 퍼퓸",
-      "price": "110",
+      "price": "110000",
       "capacity": "50ml",
-      "stock": ""
+      "stock": "",
+      "quantity": 1,
+      "isChk": false
     },
     {
       "id": "5",
@@ -46,9 +54,11 @@
       "imgURL": "SignatureCask",
       "name": "Cask Signature Perfume",
       "koName": "캐스크 시그니처 퍼퓸",
-      "price": "110",
+      "price": "110000",
       "capacity": "50ml",
-      "stock": "SOLDOUT"
+      "stock": "SOLDOUT",
+      "quantity": 1,
+      "isChk": false
     },
     {
       "id": "6",
@@ -56,18 +66,22 @@
       "imgURL": "PerfumeNoll",
       "name": "NOLL Perfume",
       "koName": "놀 시그니처 퍼퓸",
-      "price": "55",
+      "price": "55000",
       "capacity": "130ml",
-      "stock": ""
+      "stock": "",
+      "quantity": 1,
+      "isChk": false
     },
     {
       "id": "7",
       "imgURL": "PerfumeMunaki",
       "name": "MUNAKI Perfume",
       "koName": "무나키 퍼퓸",
-      "price": "55",
+      "price": "55000",
       "capacity": "130ml",
-      "stock": ""
+      "stock": "",
+      "quantity": 1,
+      "isChk": false
     },
     {
       "id": "8",
@@ -75,9 +89,11 @@
       "imgURL": "PerfumeNube",
       "name": "NUBE Perfume",
       "koName": "누베 퍼퓸",
-      "price": "55",
+      "price": "55000",
       "capacity": "130ml",
-      "stock": ""
+      "stock": "",
+      "quantity": 1,
+      "isChk": false
     },
     {
       "id": "9",
@@ -85,9 +101,11 @@
       "imgURL": "MultiPerfumeMARINE",
       "name": "Marine Orchid Multi Perfume",
       "koName": "마린 오키드 멀티퍼퓸",
-      "price": "35",
+      "price": "35000",
       "capacity": "100ml / 200ml",
-      "stock": ""
+      "stock": "",
+      "quantity": 1,
+      "isChk": false
     },
     {
       "id": "10",
@@ -95,9 +113,11 @@
       "imgURL": "MultiPerfumeSUSIE",
       "name": "Susie Salmon Multi Perfume",
       "koName": "수지 살몬 멀티퍼퓸",
-      "price": "35",
+      "price": "35000",
       "capacity": "100ml / 200ml",
-      "stock": ""
+      "stock": "",
+      "quantity": 1,
+      "isChk": false
     },
     {
       "id": "11",
@@ -105,9 +125,11 @@
       "imgURL": "MultiPerfumeKYUJANG",
       "name": "Kyujang Multi Perfume",
       "koName": "규장 멀티퍼퓸",
-      "price": "35",
+      "price": "35000",
       "capacity": "100ml / 200ml",
-      "stock": ""
+      "stock": "",
+      "quantity": 1,
+      "isChk": false
     },
     {
       "id": "12",
@@ -115,9 +137,11 @@
       "imgURL": "MultiPerfumeTOIT",
       "name": "Toit Vert Multi Perfume",
       "koName": "트와 베르 멀티퍼퓸",
-      "price": "35",
+      "price": "35000",
       "capacity": "100ml / 200ml",
-      "stock": ""
+      "stock": "",
+      "quantity": 1,
+      "isChk": false
     },
     {
       "id": "13",
@@ -125,9 +149,11 @@
       "imgURL": "MultiPerfumeRoland",
       "name": "Roland Multi Perfume",
       "koName": "롤랑 멀티퍼퓸",
-      "price": "35",
+      "price": "35000",
       "capacity": "100ml / 200ml",
-      "stock": ""
+      "stock": "",
+      "quantity": 1,
+      "isChk": false
     },
     {
       "id": "14",
@@ -135,9 +161,11 @@
       "imgURL": "MultiPerfumeLUCIEN",
       "name": "Lucien Carr Multi Perfume",
       "koName": "루시엔 멀티퍼퓸",
-      "price": "35",
+      "price": "35000",
       "capacity": "100ml / 200ml",
-      "stock": ""
+      "stock": "",
+      "quantity": 1,
+      "isChk": false
     },
     {
       "id": "15",
@@ -145,9 +173,11 @@
       "imgURL": "MultiPerfumeLUCY",
       "name": "Lucy Diamond Multi Perfume",
       "koName": "루시 다이아몬드 멀티퍼퓸",
-      "price": "35",
+      "price": "35000",
       "capacity": "100ml / 200ml",
-      "stock": ""
+      "stock": "",
+      "quantity": 1,
+      "isChk": false
     },
     {
       "id": "16",
@@ -155,9 +185,11 @@
       "imgURL": "MultiPerfumeVIVIAN",
       "name": "Vivian Ward Multi Perfume",
       "koName": "비비안 워드 멀티퍼퓸",
-      "price": "35",
+      "price": "35000",
       "capacity": "100ml / 200ml",
-      "stock": ""
+      "stock": "",
+      "quantity": 1,
+      "isChk": false
     },
     {
       "id": "17",
@@ -165,9 +197,11 @@
       "imgURL": "MultiPerfumeWEGENER",
       "name": "Wegener Multi Perfume",
       "koName": "베게너 멀티퍼퓸",
-      "price": "35",
+      "price": "35000",
       "capacity": "100ml / 200ml",
-      "stock": ""
+      "stock": "",
+      "quantity": 1,
+      "isChk": false
     },
     {
       "id": "18",
@@ -175,9 +209,11 @@
       "imgURL": "MultiPerfumeLILY",
       "name": "Lily Owen Multi Perfume",
       "koName": "릴리 오웬 멀티퍼퓸",
-      "price": "35",
+      "price": "35000",
       "capacity": "100ml / 200ml",
-      "stock": ""
+      "stock": "",
+      "quantity": 1,
+      "isChk": false
     },
     {
       "id": "19",
@@ -185,9 +221,11 @@
       "imgURL": "MultiPerfumeVIOLETTE",
       "name": "Violette Multi Perfume",
       "koName": "비올레뜨 멀티퍼퓸",
-      "price": "35",
+      "price": "35000",
       "capacity": "100ml / 200ml",
-      "stock": ""
+      "stock": "",
+      "quantity": 1,
+      "isChk": false
     },
     {
       "id": "20",
@@ -195,9 +233,26 @@
       "imgURL": "MultiPerfumeLUMBER",
       "name": "Lumberjack Multi Perfume",
       "koName": "럼버젝 멀티퍼퓸",
-      "price": "35",
+      "price": "35000",
       "capacity": "100ml / 200ml",
-      "stock": ""
+      "stock": "",
+      "quantity": 1,
+      "isChk": false
+    }
+  ],
+
+  "cartItems": [
+    {
+      "itemId": 1,
+      "quantity": 1
+    },
+    {
+      "itemId": 5,
+      "quantity": 7
+    },
+    {
+      "itemId": 2,
+      "quantity": 3
     }
   ]
 }

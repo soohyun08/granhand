@@ -2,6 +2,9 @@ import { Link } from "react-router-dom";
 
 function ProductItem({ item }) {
   const path = process.env.PUBLIC_URL;
+
+  const price = item.price;
+  const priceComma = price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   return (
     <>
       <section key={item.id}>
@@ -12,7 +15,7 @@ function ProductItem({ item }) {
             <li>{item.koName}</li>
           </ul>
           <ul className="itemDetail">
-            <li>{item.price}</li>
+            <li>{priceComma}</li>
             <li>{item.capacity}</li>
           </ul>
           <div className="stock">{item.stock}</div>

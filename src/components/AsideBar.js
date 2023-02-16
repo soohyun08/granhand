@@ -21,16 +21,16 @@ function AsideBar() {
       <div className="sideBar">
         <ul>
           <li className="category">
-            <Link to="/perfume">perfume</Link>
+            <div>perfume</div>
           </li>
           <li>
-            <Link to="/signature">signature</Link>
+            <div>signature</div>
           </li>
           <li>
-            <Link to="/perfume2">perfume</Link>
+            <div>perfume</div>
           </li>
           <li>
-            <Link to="/multiPerfume">multi perfume</Link>
+            <div>multi perfume</div>
           </li>
         </ul>
         {/*         <ul>

@@ -44,11 +44,18 @@ const cartList = JSON.parse(localStorage.getItem(CART_KEY) || "{}");
 
 export function addCartList(itemId) {
   cartList[itemId] = shopItems[itemId].name;
+  // cartList[itemId] = shopItems[itemId].quantity;
   localStorage.setItem(CART_KEY, JSON.stringify(cartList));
 }
 
 export function delCartList(itemId) {
+  // const idx = itemId.map((idx) => delete cartList[idx]);
   delete cartList[itemId];
+  localStorage.setItem(CART_KEY, JSON.stringify(cartList));
+}
+
+export function delSelectedCartLists(itemId) {
+  const idx = itemId.map((idx) => delete cartList[idx]);
   localStorage.setItem(CART_KEY, JSON.stringify(cartList));
 }
 

@@ -6,7 +6,7 @@ import AsideBar from "../AsideBar";
 
 import "./productList.scss";
 
-function ProductList() {
+function ProductList({ items, handleAdd }) {
   const shopItems = setShopItems();
 
   return (
@@ -15,8 +15,23 @@ function ProductList() {
 
       <article className="mainContent">
         {shopItems.map((item) => (
-          <ProductItem key={item.id} item={item} />
+          <ProductItem
+            key={item.id}
+            item={item}
+            handleClick={() => {
+              handleAdd(item.id);
+            }}
+          />
         ))}
+        {/*         {items.map((item, idx) => (
+          <ProductItem
+            key={idx}
+            item={item}
+            handleClick={() => {
+              handleAdd(item.id);
+            }}
+          />
+        ))} */}
       </article>
     </div>
   );

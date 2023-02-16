@@ -33,6 +33,9 @@ function Join() {
     });
 
     console.log(createUser.user);
+
+    alert("회원가입 되었습니다.");
+    navigate("/");
   };
 
   useEffect(() => {

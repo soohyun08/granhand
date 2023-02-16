@@ -10,6 +10,11 @@
     display: flex;
     font-family: $Helvetica;
     font-size: 14px;
+    :nth-child(1) {
+      &:hover a {
+        color: $colorSoftGray;
+      }
+    }
     :nth-child(2) {
       opacity: 0.9;
     }
