@@ -19,7 +19,7 @@ function Cart() {
   const [total, setTotal] = useState(0);
   let deliveryFee = total < 40000 ? 4000 : 0;
   // const [sum, setSum] = useState(0);
-  let sum = `${total} + ${deliveryFee}`;
+  let sum = total + deliveryFee;
 
   // ***********************
   const increment = (currentId) => {
@@ -68,17 +68,25 @@ function Cart() {
       }
     }
 
-    let targetPrice = product
+    /* let targetPrice = product
       .filter((item) => item.id === e.target.id)
-      .map((item) => item.price);
+      .map((item) => item.price); */
+    let targetPrice = product.find((item) => item.id === e.target?.id)?.price;
+    let targetQuantity = product.find(
+      (item) => item.id === e.target?.id
+    )?.quantity;
+    let targetTotalPrice = targetPrice * targetQuantity;
 
     if (e.target.checked) {
-      setTotal(total + targetPrice);
+      setTotal(total + targetTotalPrice);
     } else {
-      setTotal(total - targetPrice);
+      setTotal(total - targetTotalPrice);
     }
-    // console.log(targetPrice);
+
+    console.log(targetTotalPrice);
   };
+
+  useEffect(() => {}, []);
   /* 
   const onOpen = () => {
     setIsShow(true);
