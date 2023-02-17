@@ -16,6 +16,11 @@ function Cart() {
   /*  const [quantity, setQuantity] = useState(1);
   const [totalPrice, setTotalPrice] = useState(); */
 
+  const [total, setTotal] = useState(0);
+  let deliveryFee = total < 40000 ? 4000 : 0;
+  // const [sum, setSum] = useState(0);
+  let sum = `${total} + ${deliveryFee}`;
+
   // ***********************
   const increment = (currentId) => {
     setProduct(
@@ -41,7 +46,7 @@ function Cart() {
   // };
 
   const changeInput = (e) => {
-    const { checked, name } = e.target;
+    const { checked, name, id } = e.target;
 
     if (name === "all") {
       setProduct(
@@ -58,7 +63,21 @@ function Cart() {
           item.name === name ? { ...item, isChk: checked } : item
         )
       );
+      if (product.isChk === true) {
+        return (total = product.map((item) => item.quantity * product.price));
+      }
     }
+
+    let targetPrice = product
+      .filter((item) => item.id === e.target.id)
+      .map((item) => item.price);
+
+    if (e.target.checked) {
+      setTotal(total + targetPrice);
+    } else {
+      setTotal(total - targetPrice);
+    }
+    // console.log(targetPrice);
   };
   /* 
   const onOpen = () => {
@@ -70,7 +89,6 @@ function Cart() {
 
   const handleDelete = (delItem) => {
     delCartList(delItem);
-    console.log(delItem);
     const nextProduct = getCartList();
     setProduct(nextProduct);
   };
@@ -88,18 +106,9 @@ function Cart() {
       .map((item) => item.id);
     delSelectedCartLists(selectDelItem);
     console.log(selectDelItem);
-
     const nextProduct = getCartList();
     setProduct(nextProduct);
   };
-
-  let total = 0;
-
-  for (let i = 0; i < product.length; i++) {
-    total += product[i].quantity * product[i].price;
-  }
-
-  let sum = total + 4000;
 
   useEffect(() => {
     const nextProduct = getCartList();
@@ -135,6 +144,7 @@ function Cart() {
                 <input
                   type="checkbox"
                   name={item.name}
+                  id={item.id}
                   checked={item.isChk}
                   onChange={changeInput}
                 />
@@ -187,7 +197,8 @@ function Cart() {
 
       <h5 className="totalQuantity">총 주문 상품 {product.length}개</h5>
       <h6 className="total">
-        {total.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} + 4,000 =
+        {total.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} +{" "}
+        {deliveryFee.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} ={" "}
         {sum.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
       </h6>
 

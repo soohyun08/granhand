@@ -4,20 +4,21 @@ import Card from "./Card";
 
 function Search({ shopItems }) {
   const [userInput, setUserInput] = useState("");
-  // console.log(shopItems);
   const handleChange = (e) => {
     setUserInput(e.target.value.toLowerCase());
   };
 
   const searched = shopItems.filter((item) => {
-    return item.name.toLowerCase().includes(userInput);
+    return (
+      item.name.toLowerCase().includes(userInput) ||
+      item.koName.includes(userInput)
+    );
   });
 
   const onReset = (e) => {
     setUserInput("");
   };
 
-  console.log(searched);
   return (
     <div className="searchContainer">
       <div className="searchBar">

@@ -57,47 +57,90 @@
         display: none;
       }
 
-      .shoppingBtn {
-        display: flex;
-        width: 100%;
-        button {
-          cursor: pointer;
-          width: 260px;
-          height: 46px;
-          line-height: 46px;
-          margin-bottom: 10px;
-          &:nth-child(1) {
-            background-color: #000;
-            color: #fff;
+      .selectedItem {
+        background-color: #efefef;
+        padding: 0 20px;
+        margin-bottom: 30px;
+        .row1 {
+          display: flex;
+          align-items: center;
+          color: $colorDarkGray;
+          font-size: 14px;
+          border-bottom: dashed 1px $colorSoftGray;
+
+          button {
+            margin-left: auto;
+            svg {
+              width: 16px;
+              fill: $colorSoftGray;
+            }
           }
-          &:nth-child(2) {
-            margin-left: 15px;
-            background-color: #fff;
-            color: #000;
-            border: $borderGray;
+        }
+        .row2 {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 10px 0;
+          .count {
+            display: flex;
+            button,
+            p {
+              background-color: #fff;
+              border: 1px solid #ddd;
+              margin: 0;
+              padding: 0 6px;
+            }
+            p {
+              padding: 0 10px;
+              border-left: 0;
+              border-right: 0;
+              font-size: 14px;
+              height: 30px;
+              line-height: 30px;
+            }
+          }
+          .totalPrice {
+            font-size: 14px;
           }
         }
       }
-      .NshoppingBtn {
+
+      .shoppingBtn {
+        display: flex;
+        width: 100%;
+        .buy {
+          cursor: pointer;
+          width: 230px;
+          height: 46px;
+          line-height: 46px;
+          background-color: #000;
+          color: #fff;
+          background-color: #fff;
+          color: #000;
+          border: $borderGray;
+          text-align: center;
+        }
         button {
           cursor: pointer;
-          height: 50px;
-          line-height: 50px;
-          &:nth-child(1) {
-            background-color: #00c73c;
-            color: #fff;
-            width: 470px;
-          }
+          width: 230px;
+          height: 46px;
+          line-height: 46px;
+          margin-bottom: 10px;
+
           &:nth-child(2) {
+            margin-left: 15px;
+            background-color: #000;
+            color: #fff;
+          }
+          &:nth-child(3) {
             background-color: #fff;
             border: $borderGray;
             color: #000;
             width: 50px;
             margin-left: 15px;
-            font-size: 18px;
-            line-height: 40px;
+            line-height: 50px;
             svg {
-              width: 16px;
+              width: 12px;
             }
           }
         }

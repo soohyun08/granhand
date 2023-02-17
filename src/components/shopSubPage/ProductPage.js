@@ -1,23 +1,40 @@
 import { Navigate, useNavigate, useParams } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { getItemId, addWishList, addCartList } from "../../assets";
 import "./productPage.scss";
 
 import info from "../../assets/DB/productPageData.json";
+import SelectedList from "./SelectedList";
 
 function ProductPage() {
   const [txt, setTxt] = useState("");
-  const [selectedItem, setSelectedItem] = useState([{ item: "" }]);
-  const [newSelectedItem, setNewSelectedItem] = useState({ item: "" });
+  const [selectedItem, setSelectedItem] = useState([]);
+  // const [newSelectedItem, setNewSelectedItem] = useState({ text: "" });
+  // const [product, setProduct] = useState([]);
+  const [isShow, setIsShow] = useState(false);
+
+  const id = useRef(selectedItem.length + 1);
+
+  // useEffect(() => setNewSelectedItem({ item: txt }), [txt]);
+  // console.log(selectedItem);
+
+  const onAdd = (txt) => {
+    setSelectedItem([
+      ...selectedItem,
+      {
+        id: id.current++,
+        text: txt,
+        price: item.price,
+        quantity: item.quantity,
+      },
+    ]);
+    setTxt("");
+  };
 
   const path = process.env.PUBLIC_URL;
-
   const { itemId } = useParams();
-
   const item = getItemId(itemId);
-
   const navigate = useNavigate();
-
   if (!item) {
     return <Navigate to="/shop" />;
   }
@@ -36,12 +53,13 @@ function ProductPage() {
     navigate("/cart");
   };
 
+  const onDel = (id) => {
+    setSelectedItem(selectedItem.filter((item) => item.id !== id));
+  };
+
   const changeInput = (e) => {
     setTxt(e.target.value);
   };
-
-  useEffect(() => setNewSelectedItem({ item: txt }), [txt]);
-  console.log(selectedItem);
 
   const handleOnKeyPress = (e) => {
     if (e.key === "Enter") {
@@ -50,15 +68,35 @@ function ProductPage() {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    setSelectedItem([...selectedItem, newSelectedItem]);
-    setTxt("");
+    // setSelectedItem([...selectedItem, newSelectedItem]);
+    // setTxt("");
+    onAdd(txt);
+    onOpen();
   };
-
+  /* 
   const selectedItemMap = selectedItem.map((selectedItem, i) => (
     <p key={i}>{selectedItem.item}</p>
   ));
+ */
+  /*  const handleSelect = (e) => {
+    const isSelected = e.target.value;
+    onAdd(isSelected);
+    // setNewSelectedItem({ [name]: isSelected });
+    // setSelectedItem({ ...selectedItem, [name]: isSelected });
+    onOpen();
+  };
+ */
+  const onOpen = () => {
+    setIsShow(true);
+  };
+  const onClose = () => {
+    setIsShow(false);
+  };
 
-  const selectChange = () => {};
+  const handleBuy = () => {
+    alert("로그인해주세요");
+    navigate("/login");
+  };
 
   const priceComma = item.price
     .toString()
@@ -87,33 +125,40 @@ function ProductPage() {
             name="stamping"
             id="stamping"
             placeholder="10자 이하 영문대문자, 숫자, 특수기호(. , ! % & ? &hearts;)만 가능합니다."
-            required
+            // required
             value={txt}
             onChange={changeInput}
             onKeyPress={handleOnKeyPress}
           />
-
+          {/* 
           <label htmlFor="shoppingBag">쇼핑백</label>
-          <select name="shoppingBag" id="shoppingBag" onChange={selectChange}>
+          <select name="shoppingBag" id="shoppingBag" onChange={handleSelect}>
             <option value="" selected disabled>
               옵션을 선택하세요
             </option>
-            <option value="addBag">
-              쇼핑백 추가 구매 S(18x27x9cm) <strong>1,000 KRW</strong>
+            <option value="쇼핑백">
+              쇼핑백 추가 구매 S(18x27x9cm) 1,000 KRW
             </option>
-          </select>
+          </select> */}
 
-          <div className="selectedItem">{selectedItemMap}</div>
+          {isShow && (
+            <SelectedList
+              selectedItem={selectedItem}
+              onDel={onDel}
+              /*               decrement={decrement}
+              increment={increment} */
+            />
+          )}
 
           <div className="shoppingBtn">
-            <button>구매하기</button>
+            <div className="buy" onClick={handleBuy}>
+              구매하기
+            </div>
+
             <button type="submit" onClick={handleAddCartList}>
               장바구니 담기
             </button>
-          </div>
 
-          <div className="NshoppingBtn">
-            <button>Pay 구매하기</button>
             <button onClick={handleAddWishList}>
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
                 <path d="M47.6 300.4L228.3 469.1c7.5 7 17.4 10.9 27.7 10.9s20.2-3.9 27.7-10.9L464.4 300.4c30.4-28.3 47.6-68 47.6-109.5v-5.8c0-69.9-50.5-129.5-119.4-141C347 36.5 300.6 51.4 268 84L256 96 244 84c-32.6-32.6-79-47.5-124.6-39.9C50.5 55.6 0 115.2 0 185.1v5.8c0 41.5 17.2 81.2 47.6 109.5z" />

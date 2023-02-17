@@ -101,6 +101,7 @@ function App() {
           <Route index element={<ProductList />} />
           <Route path=":itemId" element={<ProductPage />} />
         </Route>
+
         {/* 
         <Route path="/perfume" element={<Perfume />} />
         <Route path="/signature" element={<Signature />} />
