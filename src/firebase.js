@@ -7,7 +7,7 @@ const firebaseConfig = {
   projectId: "granhand-join-c230e",
   storageBucket: "granhand-join-c230e.appspot.com",
   messagingSenderId: "538446459432",
-  appId: "1:538446459432:web:eda95b19d372ebee0cfb1d",
+  appId: "1:538446459432:web:bace7990a22bfa750cfb1d",
 };
 
 firebase.initializeApp(firebaseConfig);

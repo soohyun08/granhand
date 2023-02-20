@@ -37,13 +37,18 @@ export function getWishlist() {
   return shopItems.filter((item) => wishlist[item.id]);
 }
 
+//////////////////////////////////
+
 // 카트에 담기
 const CART_KEY = "그랑핸드_장바구니";
-
 const cartList = JSON.parse(localStorage.getItem(CART_KEY) || "{}");
+
+const STAMPING_KEY = "주문_상품_스캠핑";
+const textList = JSON.parse(localStorage.getItem(STAMPING_KEY) || "{}");
 
 export function addCartList(itemId) {
   cartList[itemId] = shopItems[itemId].name;
+  // cartList[itemId] = shopItems[itemId].quantity;
   localStorage.setItem(CART_KEY, JSON.stringify(cartList));
 }
 
@@ -52,6 +57,15 @@ export function delCartList(itemId) {
   localStorage.setItem(CART_KEY, JSON.stringify(cartList));
 }
 
+export function delSelectedCartLists(itemId) {
+  itemId.map((idx) => delete cartList[idx]);
+  localStorage.setItem(CART_KEY, JSON.stringify(cartList));
+}
+
 export function getCartList() {
   return shopItems.filter((item) => cartList[item.id]);
+}
+
+export function addStamping() {
+  localStorage.setItem(CART_KEY, JSON.stringify(textList));
 }

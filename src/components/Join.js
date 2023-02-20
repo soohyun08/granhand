@@ -18,9 +18,11 @@ function Join() {
   const handleSubmit = async () => {
     if (!(UserName && UserPw1 && UserPw2 && UserId && UserNumber)) {
       return alert("모두 작성해주세요");
-    }
-    if (UserPw1 !== UserPw2) {
+    } else if (UserPw1 !== UserPw2) {
       return alert("비밀번호를 동일하게 입력하세요");
+    } else {
+      alert("회원가입 되었습니다.");
+      navigate("/");
     }
 
     let createUser = await firebase
@@ -34,13 +36,6 @@ function Join() {
 
     console.log(createUser.user);
   };
-
-  useEffect(() => {
-    if (Submit) {
-      alert("회원가입이 완료되었습니다. 메인페이지로 이동합니다.");
-      navigate("/");
-    }
-  }, [handleSubmit]);
 
   return (
     <div className="join">

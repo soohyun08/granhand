@@ -14,11 +14,11 @@ function Navigation() {
           <Link to="/shop">Shop</Link>
         </li> */}
         <li>
-          <Link to="/productList">Product</Link>
+          <Link to="/productList">Products</Link>
         </li>
-        <li>
+        {/*         <li>
           <Link to="/stores">Stores</Link>
-        </li>
+        </li> */}
       </ul>
 
       <ul className="registry">

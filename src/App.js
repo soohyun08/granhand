@@ -25,8 +25,10 @@ import ProductPage from "./components/shopSubPage/ProductPage";
 import ProductList from "./components/shopSubPage/ProductList";
 import WishList from "./components/WishList";
 
+import { initialState } from "./assets/DB/data";
+
 function App() {
-  const [ShopItems, setShopItems] = useState([]);
+  const [shopItems, setShopItems] = useState([]);
   const [SignatureItems, setSignatureItems] = useState([]);
   const [PerfumeItems, setPerfumeItems] = useState([]);
   const [MultiPerfumeItems, setMultiPerfumeItems] = useState([]);
@@ -35,7 +37,7 @@ function App() {
     const getData = async () => {
       const DataList = await axios.get("./DB/shopData.json");
       // console.log(DataList.data.ShopItems);
-      setShopItems(DataList.data.ShopItems);
+      setShopItems(DataList.data.shopItems);
       /*       setSignatureItems(DataList.data.ShopItems.SignatureItems);
       setPerfumeItems(DataList.data.ShopItems.PerfumeItems);
       setMultiPerfumeItems(DataList.data.ShopItems.MultiPerfumeItems); */
@@ -43,6 +45,50 @@ function App() {
     getData();
   }, []);
 
+  // const { initialState } = data;
+  /*   const [items, setItems] = useState(initialState.items);
+  const [cartItems, setCartItems] = useState(initialState.cartItems);
+
+  const addToCart = (itemId) => {
+    const found = cartItems.filter((el) => el.itemId === itemId)[0];
+
+    if (found) {
+      setQuantity(itemId, found.quantity + 1);
+    } else {
+      setCartItems([
+        ...cartItems,
+        {
+          itemId,
+          quantity: 1,
+        },
+      ]);
+    }
+  };
+
+  const setQuantity = (itemId, quantity) => {
+    const found = cartItems.filter((el) => el.itemId === itemId)[0];
+    const idx = cartItems.indexOf(found);
+
+    const cartItem = {
+      itemId,
+      quantity,
+    };
+
+    setCartItems([
+      ...cartItems.slice(0, idx),
+      cartItem,
+      ...cartItems.slice(idx + 1),
+    ]);
+  };
+
+  const handleDelete = (itemId) => {
+    setCartItems(
+      cartItems.filter((ele) => {
+        return ele.itemId !== itemId;
+      })
+    );
+  };
+ */
   return (
     <>
       <Header />
@@ -55,6 +101,7 @@ function App() {
           <Route index element={<ProductList />} />
           <Route path=":itemId" element={<ProductPage />} />
         </Route>
+
         {/* 
         <Route path="/perfume" element={<Perfume />} />
         <Route path="/signature" element={<Signature />} />
@@ -66,7 +113,7 @@ function App() {
         <Route path="/join" element={<Join />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/wishList" element={<WishList />} />
-        <Route path="/search" element={<Search />} />
+        <Route path="/search" element={<Search shopItems={shopItems} />} />
         <Route path="/lineUp" element={<LineUp />} />
       </Routes>
 

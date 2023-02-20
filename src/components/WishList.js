@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { getWishlist, delWishlist } from "../assets";
 import "./wishList.scss";
 
@@ -33,21 +33,22 @@ function WishList() {
         <ul className="wishListMap">
           {product.map((item, idx) => (
             <li key={item.id}>
-              <NavLink to={`/productList/${item.id}`} className="wishListTxt">
-                <p>{idx + 1}.</p>
-                <p>
-                  <img
-                    src={`${path}/images/shop/${item.imgURL}.jpg`}
-                    alt={item.name}
-                  />
-                </p>
-                <h3>{item.name}</h3>
+              <div className="wishListTxt">
+                <Link to={`/productList/${item.id}`}>
+                  <p>
+                    <img
+                      src={`${path}/images/shop/${item.imgURL}.jpg`}
+                      alt={item.name}
+                    />
+                  </p>
+                  <h3>{item.name}</h3>
+                </Link>
                 <button onClick={() => handleDelete(item.id)}>
-                  <span class="material-symbols-outlined">close</span>
+                  <span className="material-symbols-outlined">close</span>
                 </button>
-              </NavLink>
+              </div>
 
-              <p className="priceTag">{item.price},000KRW</p>
+              <p className="priceTag">{item.price}KRW</p>
             </li>
           ))}
         </ul>

@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { getCartList, delCartList, delSelectedCartLists } from "../assets";
+import { getCartList, delCartList } from "../assets";
 import "./cart.scss";
-/* import { initialState } from "../assets/DB/data";
-import CartQty from "./CartQty"; */
+import { initialState } from "../assets/DB/data";
+import CartQty from "./CartQty";
 // import { useDispatch, useSelector } from "react-redux";
 
 function Cart() {
@@ -12,19 +12,9 @@ function Cart() {
   // const count = useSelector((state) => state.cart.num);
 
   const [product, setProduct] = useState([]);
-  // const [isShow, setIsShow] = useState(false);
-  /*  const [quantity, setQuantity] = useState(1);
-  const [totalPrice, setTotalPrice] = useState(); */
-
-  const [total, setTotal] = useState(0);
-  let deliveryFee = total < 40000 ? 4000 : 0;
-  // const [sum, setSum] = useState(0);
-  let sum = total + deliveryFee;
-
-  const totalPrice = product.reduce(
-    (accumulator, currentItem) => accumulator + currentItem.price,
-    0
-  );
+  const [isShow, setIsShow] = useState(false);
+  const [quantity, setQuantity] = useState(1);
+  const [totalPrice, setTotalPrice] = useState();
 
   // ***********************
   const increment = (currentId) => {
@@ -37,7 +27,7 @@ function Cart() {
   const decrement = (currentId) => {
     setProduct(
       product.map((item) =>
-        item.id === currentId && item.quantity > 1
+        item.id === currentId && item.quantity > 0
           ? { ...item, quantity: item.quantity - 1 }
           : item
       )
@@ -62,65 +52,42 @@ function Cart() {
           };
         })
       );
-
-      setTotal(totalPrice);
     } else {
       setProduct(
         product.map((item) =>
           item.name === name ? { ...item, isChk: checked } : item
         )
       );
-      if (product.isChk === true) {
-        return (total = product.map((item) => item.quantity * product.price));
-      }
     }
-
-    /* let targetPrice = product
-      .filter((item) => item.id === e.target.id)
-      .map((item) => item.price); */
-    let targetPrice = product.find((item) => item.id === e.target?.id)?.price;
-    let targetQuantity = product.find(
-      (item) => item.id === e.target?.id
-    )?.quantity;
-    let targetTotalPrice = targetPrice * targetQuantity;
-
-    if (e.target.checked) {
-      setTotal(total + targetTotalPrice);
-    } else {
-      setTotal(total - targetTotalPrice);
-    }
-
-    console.log(targetTotalPrice);
   };
 
-  useEffect(() => {}, []);
-  /* 
   const onOpen = () => {
     setIsShow(true);
   };
   const onClose = () => {
     setIsShow(false);
-  }; */
+  };
 
   const handleDelete = (delItem) => {
     delCartList(delItem);
+    console.log(delItem);
     const nextProduct = getCartList();
     setProduct(nextProduct);
   };
 
   // const selectDele = () => {
-  //   const chkItem = product.filter((item) => item.isChk === true);
-  //   delCartList(chkItem.map((item) => item.id));
+  //   const chkItem = product.filter((item) =>
+  //     product.isChk === true ? product.id : product
+  //   );
+  //   delCartList(chkItem);
+  //   console.log(chkItem);
   //   const nextProduct = getCartList();
   //   setProduct(nextProduct);
   // };
   // *******************************************
   const selectDele = () => {
-    const selectDelItem = product
-      .filter((item) => item.isChk === true)
-      .map((item) => item.id);
-    delSelectedCartLists(selectDelItem);
-    console.log(selectDelItem);
+    const chkItem = product.filter((item) => item.isChk === true);
+    delCartList(chkItem.map((item) => item.id));
     const nextProduct = getCartList();
     setProduct(nextProduct);
   };
@@ -147,19 +114,19 @@ function Cart() {
         </div>
         <p>수량</p>
         <p>주문금액</p>
+        {/* <p>배송정보</p> */}
       </div>
 
       {product.length === 0 ? (
         <h3 className="none">장바구니가 비었습니다.</h3>
       ) : (
         <ul className="cartListMap">
-          {product.map((item) => (
+          {product.map((item, idx) => (
             <li key={item.id}>
               <div className="cartListTxt">
                 <input
                   type="checkbox"
                   name={item.name}
-                  id={item.id}
                   checked={item.isChk}
                   onChange={changeInput}
                 />
@@ -196,12 +163,7 @@ function Cart() {
                 </div>
               </div>
               {/* ****************************************** */}
-              <p className="priceTag">
-                {(item.quantity * item.price)
-                  .toString()
-                  .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
-                KRW
-              </p>
+              <p className="priceTag">{item.quantity * item.price}KRW</p>
             </li>
           ))}
         </ul>
@@ -211,20 +173,7 @@ function Cart() {
       </button>
 
       <h5 className="totalQuantity">총 주문 상품 {product.length}개</h5>
-      <h6 className="total">
-        {total.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} +{" "}
-        {deliveryFee.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} ={" "}
-        {sum.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
-      </h6>
-
-      <div className="cartBtn">
-        <Link to="/login" className="buy">
-          주문하기
-        </Link>
-        <Link to="/" className="returnShopping">
-          계속 쇼핑하기
-        </Link>
-      </div>
+      <h6 className="total">상품금액 + 배송비 = 총 주문금액</h6>
     </div>
   );
 }
