@@ -2,26 +2,17 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { getCartList, delCartList, delSelectedCartLists } from "../assets";
 import "./cart.scss";
-/* import { initialState } from "../assets/DB/data";
-import CartQty from "./CartQty"; */
-// import { useDispatch, useSelector } from "react-redux";
 
 function Cart() {
   const path = process.env.PUBLIC_URL;
 
-  // const count = useSelector((state) => state.cart.num);
-
   const [product, setProduct] = useState([]);
-  // const [isShow, setIsShow] = useState(false);
-  /*  const [quantity, setQuantity] = useState(1);
-  const [totalPrice, setTotalPrice] = useState(); */
 
   const [total, setTotal] = useState(0);
   let deliveryFee = total < 40000 ? 4000 : 0;
-  // const [sum, setSum] = useState(0);
   let sum = total + deliveryFee;
 
-  // ***********************
+  // *********************** 수량 변경
   const increment = (currentId) => {
     setProduct(
       product.map((item) =>
@@ -39,38 +30,17 @@ function Cart() {
     );
   };
 
-  // ***********************
-
-  // const getCount = (x) => {
-  //   setQuantity(x);
-  // };
-
+  // *********************** 체크박스
   const changeInput = (e) => {
-    const { checked, name, id } = e.target;
+    const { checked, name } = e.target;
 
-    if (name === "all") {
-      setProduct(
-        product.map((item) => {
-          return {
-            ...item,
-            isChk: checked,
-          };
-        })
-      );
-    } else {
-      setProduct(
-        product.map((item) =>
-          item.name === name ? { ...item, isChk: checked } : item
-        )
-      );
-      if (product.isChk === true) {
-        return (total = product.map((item) => item.quantity * product.price));
-      }
-    }
+    setProduct(
+      product.map((item) =>
+        item.name === name ? { ...item, isChk: checked } : item
+      )
+    );
 
-    /* let targetPrice = product
-      .filter((item) => item.id === e.target.id)
-      .map((item) => item.price); */
+    // 총 금액 내기
     let targetPrice = product.find((item) => item.id === e.target?.id)?.price;
     let targetQuantity = product.find(
       (item) => item.id === e.target?.id
@@ -82,40 +52,61 @@ function Cart() {
     } else {
       setTotal(total - targetTotalPrice);
     }
-
-    console.log(targetTotalPrice);
   };
 
-  useEffect(() => {}, []);
-  /* 
-  const onOpen = () => {
-    setIsShow(true);
-  };
-  const onClose = () => {
-    setIsShow(false);
-  }; */
+  // *********************** 전체 체크박스
 
+  const [isAllChecked, setIsAllChecked] = useState(true);
+
+  const handleToggleAll = (e) => {
+    const { checked } = e.target;
+
+    setProduct(
+      product.map((item) => {
+        return {
+          ...item,
+          isChk: checked,
+        };
+      })
+    );
+
+    // 총 금액 내기
+    if (isAllChecked) {
+      let checkedItemPrice = product.reduce(
+        (accumulator, currentItem) =>
+          accumulator + currentItem.price * currentItem.quantity,
+        0
+      );
+      setTotal(checkedItemPrice);
+    } else {
+      setTotal(0);
+    }
+
+    setIsAllChecked(!isAllChecked);
+    console.log(isAllChecked);
+  };
+
+  // *********************** 개별 삭제
   const handleDelete = (delItem) => {
     delCartList(delItem);
     const nextProduct = getCartList();
     setProduct(nextProduct);
+
+    setTotal(0);
   };
 
-  // const selectDele = () => {
-  //   const chkItem = product.filter((item) => item.isChk === true);
-  //   delCartList(chkItem.map((item) => item.id));
-  //   const nextProduct = getCartList();
-  //   setProduct(nextProduct);
-  // };
-  // *******************************************
+  // *********************** 선택 상품 전체삭제
   const selectDele = () => {
     const selectDelItem = product
       .filter((item) => item.isChk === true)
       .map((item) => item.id);
     delSelectedCartLists(selectDelItem);
-    console.log(selectDelItem);
+
     const nextProduct = getCartList();
     setProduct(nextProduct);
+
+    setIsAllChecked(false);
+    setTotal(0);
   };
 
   useEffect(() => {
@@ -133,7 +124,7 @@ function Cart() {
             type="checkbox"
             name="all"
             id="all"
-            onChange={changeInput}
+            onChange={handleToggleAll}
             checked={product.filter((item) => item.isChk !== true).length < 1}
           />
           <p>상품 정보</p>
@@ -188,7 +179,7 @@ function Cart() {
                   <button onClick={() => increment(item.id)}>+</button>
                 </div>
               </div>
-              {/* ****************************************** */}
+
               <p className="priceTag">
                 {(item.quantity * item.price)
                   .toString()
@@ -205,8 +196,8 @@ function Cart() {
 
       <h5 className="totalQuantity">총 주문 상품 {product.length}개</h5>
       <h6 className="total">
-        {total.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} +{" "}
-        {deliveryFee.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} ={" "}
+        {total.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} +
+        {deliveryFee.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} =
         {sum.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
       </h6>
 
