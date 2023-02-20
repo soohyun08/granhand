@@ -12,7 +12,7 @@ function ProductList({ handleAdd }) {
 
   const sortAscending = () => {
     const sorted = [...product].sort((a, b) => b.price - a.price);
-    console.log(sorted);
+    // console.log(sorted);
     setProduct(sorted);
   };
   const sortDescending = () => {

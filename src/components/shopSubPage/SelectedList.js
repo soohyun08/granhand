@@ -1,4 +1,4 @@
-function SelectedList({ selectedItem, onDel, decrement, increment }) {
+function SelectedList({ selectedItem, onDel }) {
   return (
     <div>
       {selectedItem.map((item) => {
@@ -19,12 +19,6 @@ function SelectedList({ selectedItem, onDel, decrement, increment }) {
               </button>
             </div>
             <div className="row2">
-              {/*             <div className="count">
-                <button onClick={() => decrement(item.id)}>-</button>
-                <p>{item.quantity}</p>
-                <button onClick={() => increment(item.id)}>+</button>
-              </div> */}
-
               <p className="totalPrice">
                 {item.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
                 KRW

@@ -12,9 +12,9 @@ export function getItemId(itemId) {
 }
 
 // 클릭한 제품의 번호와 일치하는 category 반환
-export function getItemCategory(itemCategory) {
-  return shopItems.find((shopItem) => shopItem.category === itemCategory);
-}
+// export function getItemCategory(itemCategory) {
+//   return shopItems.find((shopItem) => shopItem.category === itemCategory);
+// }
 
 ///////////////////////////
 

@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import "./productItem.scss";
 
 function ProductItem({ item }) {
   const path = process.env.PUBLIC_URL;
@@ -15,7 +16,7 @@ function ProductItem({ item }) {
             <li>{item.koName}</li>
           </ul>
           <ul className="itemDetail">
-            <li>{priceComma}</li>
+            <li>{priceComma} KRW</li>
             <li>{item.capacity}</li>
           </ul>
           <div className="stock">{item.stock}</div>

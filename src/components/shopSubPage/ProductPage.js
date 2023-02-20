@@ -3,7 +3,6 @@ import { useState, useEffect, useRef } from "react";
 import { getItemId, addWishList, addCartList } from "../../assets";
 import "./productPage.scss";
 
-import info from "../../assets/DB/productPageData.json";
 import SelectedList from "./SelectedList";
 
 function ProductPage() {
