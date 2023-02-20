@@ -13,6 +13,13 @@ function Cart() {
   let sum = total + deliveryFee;
 
   // *********************** 수량 변경
+  /* 
+  let checkedItemPrice = product.reduce(
+    (accumulator, currentItem) =>
+      accumulator + currentItem.price * currentItem.quantity,
+    0
+  ); */
+
   const increment = (currentId) => {
     setProduct(
       product.map((item) =>
@@ -30,17 +37,7 @@ function Cart() {
     );
   };
 
-  // *********************** 체크박스
-  const changeInput = (e) => {
-    const { checked, name } = e.target;
-
-    setProduct(
-      product.map((item) =>
-        item.name === name ? { ...item, isChk: checked } : item
-      )
-    );
-
-    // 총 금액 내기
+  const changeTotal = (e) => {
     let targetPrice = product.find((item) => item.id === e.target?.id)?.price;
     let targetQuantity = product.find(
       (item) => item.id === e.target?.id
@@ -54,6 +51,32 @@ function Cart() {
     }
   };
 
+  // *********************** 체크박스
+  const changeInput = (e) => {
+    const { checked, name } = e.target;
+
+    setProduct(
+      product.map((item) =>
+        item.name === name ? { ...item, isChk: checked } : item
+      )
+    );
+
+    // 총 금액 내기
+    /*  let targetPrice = product.find((item) => item.id === e.target?.id)?.price;
+    let targetQuantity = product.find(
+      (item) => item.id === e.target?.id
+    )?.quantity;
+    let targetTotalPrice = targetPrice * targetQuantity;
+
+    if (e.target.checked) {
+      setTotal(total + targetTotalPrice);
+    } else {
+      setTotal(total - targetTotalPrice);
+    } */
+
+    changeTotal(e);
+  };
+
   // *********************** 전체 체크박스
 
   const [isAllChecked, setIsAllChecked] = useState(true);
@@ -61,6 +84,9 @@ function Cart() {
   const handleToggleAll = (e) => {
     const { checked } = e.target;
 
+    /*  setIsAllChecked(
+      isAllChecked ? e.target.isChk === true : e.target.isChk === false
+    ); */
     setIsAllChecked(!isAllChecked);
 
     setProduct(
@@ -75,7 +101,8 @@ function Cart() {
     // 총 금액 내기
     if (isAllChecked) {
       let checkedItemPrice = product.reduce(
-        (accumulator, currentItem) => accumulator + currentItem.price,
+        (accumulator, currentItem) =>
+          accumulator + currentItem.price * currentItem.quantity,
         0
       );
       setTotal(checkedItemPrice);
@@ -89,15 +116,17 @@ function Cart() {
     delCartList(delItem);
     const nextProduct = getCartList();
     setProduct(nextProduct);
+
+    setIsAllChecked(false);
   };
 
   // *********************** 선택 상품 전체삭제
   const selectDele = () => {
     const selectDelItem = product
-      .filter((item) => item.isChk === true)
+      .filter((item) => item.isChk === false)
       .map((item) => item.id);
     delSelectedCartLists(selectDelItem);
-    console.log(selectDelItem);
+    // console.log(selectDelItem);
     const nextProduct = getCartList();
     setProduct(nextProduct);
   };
