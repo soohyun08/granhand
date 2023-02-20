@@ -9,14 +9,10 @@ import SelectedList from "./SelectedList";
 function ProductPage() {
   const [txt, setTxt] = useState("");
   const [selectedItem, setSelectedItem] = useState([]);
-  // const [newSelectedItem, setNewSelectedItem] = useState({ text: "" });
-  // const [product, setProduct] = useState([]);
+
   const [isShow, setIsShow] = useState(false);
 
   const id = useRef(selectedItem.length + 1);
-
-  // useEffect(() => setNewSelectedItem({ item: txt }), [txt]);
-  // console.log(selectedItem);
 
   const onAdd = (txt) => {
     setSelectedItem([
@@ -40,7 +36,6 @@ function ProductPage() {
   }
 
   const handleAddWishList = () => {
-    // console.log(item.id);
     alert("위시리스트에 저장 되었습니다");
     addWishList(item.id);
     navigate("/wishList");
@@ -69,25 +64,11 @@ function ProductPage() {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    // setSelectedItem([...selectedItem, newSelectedItem]);
-    // setTxt("");
+
     onAdd(txt);
     onOpen();
   };
 
-  /* 
-  const selectedItemMap = selectedItem.map((selectedItem, i) => (
-    <p key={i}>{selectedItem.item}</p>
-  ));
- */
-  /*  const handleSelect = (e) => {
-    const isSelected = e.target.value;
-    onAdd(isSelected);
-    // setNewSelectedItem({ [name]: isSelected });
-    // setSelectedItem({ ...selectedItem, [name]: isSelected });
-    onOpen();
-  };
- */
   const onOpen = () => {
     setIsShow(true);
   };
@@ -127,7 +108,6 @@ function ProductPage() {
             name="stamping"
             id="stamping"
             placeholder="10자 이하 영문대문자, 숫자, 특수기호(. , ! % & ? &hearts;)만 가능합니다."
-            // required
             value={txt}
             onChange={changeInput}
             onKeyDown={handleOnKeyPress}
@@ -143,14 +123,7 @@ function ProductPage() {
             </option>
           </select> */}
 
-          {isShow && (
-            <SelectedList
-              selectedItem={selectedItem}
-              onDel={onDel}
-              /*               decrement={decrement}
-              increment={increment} */
-            />
-          )}
+          {isShow && <SelectedList selectedItem={selectedItem} onDel={onDel} />}
 
           <div className="shoppingBtn">
             <div className="BTN" onClick={handleBuy}>

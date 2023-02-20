@@ -1,4 +1,3 @@
-import LineUp from "./LineUp";
 import "../../pages/shop.scss";
 import AsideBar from "../AsideBar";
 import PerfumeMap from "./PerfumeMap";
@@ -13,10 +12,9 @@ function Perfume() {
           <h2>
             Perfume <span>20</span>
           </h2>
-          <LineUp />
         </div>
 
-        <PerfumeMap />
+        {/* <PerfumeMap /> */}
       </div>
     </div>
   );
