@@ -162,17 +162,6 @@ function Cart() {
               </div>
 
               <div className="quantity">
-                {/* <h4>{quantity}</h4>
-                <button onClick={onOpen}>옵션/수량 변경</button>
-                               {isShow && (
-                  <CartQty
-                    onClose={onClose}
-                    path={path}
-                    item={item}
-                    getCount={getCount}
-                  />
-                )} */}
-
                 <div className="qtyBtn">
                   <button onClick={() => decrement(item.id)}>-</button>
                   <p>{item.quantity}</p>
